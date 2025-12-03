@@ -291,11 +291,6 @@ class TCPTransferHandler {
             out.flush() // VERY IMPORTANT: ensure TCP buffer is flushed to OS
             Timber.d("✓ Chunk $chunkIndex sent (${data.size} bytes) crc=$crc32")
 
-            // Optional: read ACK from server (simple protocol)
-            // val bufferedIn = socket.getInputStream().bufferedReader()
-            // val ack = bufferedIn.readLine() // blocking read — only if server sends ack
-            // Timber.d("ACK from server: $ack")
-
         } catch (e: Exception) {
             Timber.e(e, "Failed to send chunk $chunkIndex")
             throw e
